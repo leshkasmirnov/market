@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="market-1.0.0-1" author="alexey.smirnov">
+        <!-- Users -->
+        <insert tableName="person">
+            <column name="id">1</column>
+            <column name="name">buyer</column>
+        </insert>
+
+        <!-- Photos -->
+        <insert tableName="photo">
+            <column name="id">1</column>
+            <column name="description">Weather category's photo</column>
+            <column name="size">1500</column>
+            <column name="content" valueBlobFile="images/common_clothes.png"/>
+        </insert>
+        <insert tableName="photo">
+            <column name="id">2</column>
+            <column name="description">Summer weather category's photo</column>
+            <column name="size">1500</column>
+            <column name="content" valueBlobFile="images/summer_clothes.png"/>
+        </insert>
+        <insert tableName="photo">
+            <column name="id">3</column>
+            <column name="description">Short's photo 1</column>
+            <column name="size">1500</column>
+            <column name="content" valueBlobFile="images/shorts1.jpg"/>
+        </insert>
+        <insert tableName="photo">
+            <column name="id">4</column>
+            <column name="description">Short's photo 2</column>
+            <column name="size">1500</column>
+            <column name="content" valueBlobFile="images/shorts2.jpg"/>
+        </insert>
+        <insert tableName="photo">
+            <column name="id">5</column>
+            <column name="description">Short's photo 3</column>
+            <column name="size">1500</column>
+            <column name="content" valueBlobFile="images/shorts3.jpg"/>
+        </insert>
+        <insert tableName="photo">
+            <column name="id">6</column>
+            <column name="description">T-Short's photo 1</column>
+            <column name="size">1500</column>
+            <column name="content" valueBlobFile="images/t-shirt1.jpg"/>
+        </insert>
+        <insert tableName="photo">
+            <column name="id">7</column>
+            <column name="description">T-Short's photo 1</column>
+            <column name="size">1500</column>
+            <column name="content" valueBlobFile="images/t-shirt2.jpg"/>
+        </insert>
+
+        <!-- Item categories -->
+        <insert tableName="item_category">
+            <column name="id">1</column>
+            <column name="name">Weather</column>
+            <column name="description">Parent category</column>
+            <column name="photo_id">1</column>
+        </insert>
+        <insert tableName="item_category">
+            <column name="id">2</column>
+            <column name="name">Summer weather</column>
+            <column name="photo_id">2</column>
+            <column name="parent_id">1</column>
+        </insert>
+
+        <!-- Items -->
+        <insert tableName="item">
+            <column name="id">1</column>
+            <column name="code">MA001</column>
+            <column name="name">Shorts</column>
+            <column name="description">Super shorts. The best of the best</column>
+            <column name="category_id">2</column>
+            <column name="price">1500</column>
+            <column name="available_quantity">100</column>
+        </insert>
+        <insert tableName="item">
+            <column name="id">2</column>
+            <column name="code">MA002</column>
+            <column name="name">T-Shirt</column>
+            <column name="description">Super t-shirt. The best of the best</column>
+            <column name="category_id">2</column>
+            <column name="price">1700</column>
+            <column name="available_quantity">200</column>
+        </insert>
+
+        <!-- Item Photos-->
+        <insert tableName="item_photo">
+            <column name="item_id">1</column>
+            <column name="photo_id">3</column>
+        </insert>
+        <insert tableName="item_photo">
+            <column name="item_id">1</column>
+            <column name="photo_id">4</column>
+        </insert>
+        <insert tableName="item_photo">
+            <column name="item_id">1</column>
+            <column name="photo_id">5</column>
+        </insert>
+        <insert tableName="item_photo">
+            <column name="item_id">2</column>
+            <column name="photo_id">6</column>
+        </insert>
+        <insert tableName="item_photo">
+            <column name="item_id">2</column>
+            <column name="photo_id">7</column>
+        </insert>
+    </changeSet>
+</databaseChangeLog>
